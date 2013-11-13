@@ -8,6 +8,11 @@ public class Client {
 	public Client(){
 		
 	}
+	
+	public String toString() {
+		return "Client [nom=" + nom + ", prenom=" + prenom + ", mesComptes="
+				+ mesComptes + "]";
+	}
 	public String getNom() {
 		return nom;
 	}

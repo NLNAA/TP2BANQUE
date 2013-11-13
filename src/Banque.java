@@ -7,6 +7,10 @@ ArrayList<Client> mesClients = new ArrayList<Client>();
 	public Banque(){
 		
 	}
+
+	public String toString() {
+		return "Banque [mesClients=" + mesClients + "]";
+	}
 	public ArrayList<Client> getMesClients() {
 		return mesClients;
 	}

@@ -11,6 +11,11 @@ public class Compte {
 		numeroCompte = unNumCompte;
 		soldeCompte = unSoldeCompte;
 	}
+	
+	public String toString() {
+		return "Compte [unClient=" + unClient + ", numeroCompte="
+				+ numeroCompte + ", soldeCompte=" + soldeCompte + "]";
+	}
 	public Client getUnClient() {
 		return unClient;
 	}
