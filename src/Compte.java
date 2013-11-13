@@ -3,6 +3,32 @@ public class Compte {
 	private double numeroCompte;
 	private double soldeCompte;
 	
+	public Compte(){
+		
+	}
+	public Compte(Client unClient, double unNumCompte, double unSoldeCompte){
+		this.unClient = unClient;
+		numeroCompte = unNumCompte;
+		soldeCompte = unSoldeCompte;
+	}
+	public Client getUnClient() {
+		return unClient;
+	}
+	public void setUnClient(Client unClient) {
+		this.unClient = unClient;
+	}
+	public double getNumeroCompte() {
+		return numeroCompte;
+	}
+	public void setNumeroCompte(double numeroCompte) {
+		this.numeroCompte = numeroCompte;
+	}
+	public double getSoldeCompte() {
+		return soldeCompte;
+	}
+	public void setSoldeCompte(double soldeCompte) {
+		this.soldeCompte = soldeCompte;
+	}
 	public void crediterSolde(double unMontant){
 		soldeCompte += unMontant;
 	}
