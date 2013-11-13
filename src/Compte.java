@@ -12,6 +12,31 @@ public class Compte {
 		soldeCompte = unSoldeCompte;
 	}
 	
+	
+	public void crediterSolde(double unMontant){
+		soldeCompte += unMontant;
+	}
+	public boolean debiterSolde(){
+		boolean boolDebit=true;
+		return boolDebit; //true si le debit est OK, sinon False
+	}
+	public boolean transfererArgent(Compte unCompte, double unMontant){
+		boolean boolTransfert=true;
+		if(this.getSoldeCompte() < 0){
+			boolTransfert = false;
+		}
+		else{
+			this.setSoldeCompte(this.getSoldeCompte()-unMontant);
+			unCompte.setSoldeCompte(unCompte.getSoldeCompte()+unMontant);
+		}
+		
+		return boolTransfert;//true si le transfert est OK, sinon False
+	}
+	public boolean comparerCompte(Compte unCompte){
+		boolean boolCompare=true;
+		return boolCompare;
+	}
+	
 	public String toString() {
 		return "Compte [unClient=" + unClient + ", numeroCompte="
 				+ numeroCompte + ", soldeCompte=" + soldeCompte + "]";
@@ -33,20 +58,5 @@ public class Compte {
 	}
 	public void setSoldeCompte(double soldeCompte) {
 		this.soldeCompte = soldeCompte;
-	}
-	public void crediterSolde(double unMontant){
-		soldeCompte += unMontant;
-	}
-	public boolean debiterSolde(){
-		boolean boolDebit=true;
-		return boolDebit; //true si le debit est OK, sinon False
-	}
-	public boolean transfererArgent(Compte unCompte){
-		boolean boolTransfert=true;
-		return boolTransfert;//true si le transfert est OK, sinon False
-	}
-	public boolean comparerCompte(Compte unCompte){
-		boolean boolCompare=true;
-		return boolCompare;
 	}
 }

@@ -13,6 +13,27 @@ public class Client {
 		return "Client [nom=" + nom + ", prenom=" + prenom + ", mesComptes="
 				+ mesComptes + "]";
 	}
+	
+	public double soldeCompte(){
+		double soldeTotalCompte=0;
+		for(Compte c : mesComptes){
+			soldeTotalCompte += c.getSoldeCompte();
+		}
+		return soldeTotalCompte;
+	}
+	public boolean compteDansLeRouge(){
+		boolean bool=false;
+		for(Compte c : mesComptes){
+			if(c.getSoldeCompte() < 0){
+				bool = true;
+			}
+		}
+		return bool;
+	}
+	public void ajouterCompte(Compte unCompte){
+		mesComptes.add(unCompte);
+	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -30,17 +51,5 @@ public class Client {
 	}
 	public void setMesComptes(ArrayList<Compte> mesComptes) {
 		this.mesComptes = mesComptes;
-	}
-	public double soldeCompte(){
-		 double solde=0;
-		
-		return solde;
-	}
-	public boolean compteDansLeRouge(){
-		boolean bool=false;
-		return bool;
-	}
-	public void ajouterCompte(Compte unCompte){
-		mesComptes.add(unCompte);
 	}
 }
