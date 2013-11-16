@@ -16,30 +16,47 @@ public class Compte {
 	public void crediterSolde(double unMontant){
 		soldeCompte += unMontant;
 	}
-	public boolean debiterSolde(){
+	public boolean debiterSolde(double unMontant){
 		boolean boolDebit=true;
+		if(this.getSoldeCompte()<0)
+		{
+			boolDebit = false;
+		}
+		else
+		{
+		this.setSoldeCompte(getSoldeCompte()-unMontant);
+		}
+		
 		return boolDebit; //true si le debit est OK, sinon False
 	}
 	public boolean transfererArgent(Compte unCompte, double unMontant){
-		boolean boolTransfert=true;
+		boolean boolTransfert;
 		if(this.getSoldeCompte() < 0){
 			boolTransfert = false;
 		}
 		else{
 			this.setSoldeCompte(this.getSoldeCompte()-unMontant);
 			unCompte.setSoldeCompte(unCompte.getSoldeCompte()+unMontant);
+			boolTransfert = true;
 		}
 		
 		return boolTransfert;//true si le transfert est OK, sinon False
 	}
 	public boolean comparerCompte(Compte unCompte){
-		boolean boolCompare=true;
+		boolean boolCompare;
+		if(this.getSoldeCompte()>unCompte.getSoldeCompte())
+		{
+			boolCompare = true;
+		}
+		else{
+			boolCompare = false;
+		}
 		return boolCompare;
 	}
 	
 	public String toString() {
 		return "Compte [unClient=" + unClient + ", numeroCompte="
-				+ numeroCompte + ", soldeCompte=" + soldeCompte + "]";
+				+ numeroCompte + ", soldeCompte=" + soldeCompte;
 	}
 	public Client getUnClient() {
 		return unClient;
